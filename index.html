@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Expense Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>💒 Wedding Expense Tracker</h1>
+            <p>Track your wedding expenses with ease</p>
+        </header>
+
+        <div class="controls">
+            <button id="addRowBtn" class="btn btn-primary">
+                ➕ Add Expense
+            </button>
+            <div class="save-load-section">
+                <button id="saveBtn" class="btn btn-success">
+                    💾 Save
+                </button>
+                <button id="loadBtn" class="btn btn-info">
+                    📂 Load
+                </button>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table id="expenseTable">
+                <thead>
+                    <tr>
+                        <th>Expense Name</th>
+                        <th>Total Amount ($)</th>
+                        <th>Paid So Far ($)</th>
+                        <th>Remaining ($)</th>
+                        <th>Who Paid</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="expenseTableBody">
+                    <!-- Rows will be added here dynamically -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="summary">
+            <div class="summary-card">
+                <h3>Total Expenses</h3>
+                <p id="totalExpenses">$0.00</p>
+            </div>
+            <div class="summary-card">
+                <h3>Total Paid</h3>
+                <p id="totalPaid">$0.00</p>
+            </div>
+            <div class="summary-card">
+                <h3>Remaining</h3>
+                <p id="totalRemaining">$0.00</p>
+            </div>
+        </div>
+
+        <!-- Modal for save/load -->
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2 id="modalTitle">Save Data</h2>
+                <textarea id="encodedData" placeholder="Paste your encoded data here..."></textarea>
+                <div class="modal-buttons">
+                    <button id="copyBtn" class="btn btn-success">Copy to Clipboard</button>
+                    <button id="clearBtn" class="btn btn-warning">Clear</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
