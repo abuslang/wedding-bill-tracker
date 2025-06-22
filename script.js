@@ -225,9 +225,17 @@ class WeddingExpenseTracker {
         this.modalTitle.textContent = 'Save Data';
         this.encodedDataTextarea.value = encodedString;
         this.encodedDataTextarea.readOnly = false;
+        this.encodedDataTextarea.placeholder = 'Your encoded data will appear here...';
         
+        // Show copy and clear buttons, hide load button
         document.getElementById('copyBtn').style.display = 'inline-flex';
         document.getElementById('clearBtn').style.display = 'inline-flex';
+        
+        // Hide load button if it exists
+        const loadBtn = document.getElementById('loadDataBtn');
+        if (loadBtn) {
+            loadBtn.style.display = 'none';
+        }
         
         this.modal.style.display = 'block';
         this.encodedDataTextarea.focus();
@@ -240,22 +248,27 @@ class WeddingExpenseTracker {
         this.encodedDataTextarea.readOnly = false;
         this.encodedDataTextarea.placeholder = 'Paste your encoded data here...';
         
+        // Hide copy button, show clear button
         document.getElementById('copyBtn').style.display = 'none';
         document.getElementById('clearBtn').style.display = 'inline-flex';
         
+        // Create or show load button
+        let loadBtn = document.getElementById('loadDataBtn');
+        if (!loadBtn) {
+            loadBtn = document.createElement('button');
+            loadBtn.id = 'loadDataBtn';
+            loadBtn.className = 'btn btn-success';
+            loadBtn.textContent = 'Load Data';
+            loadBtn.onclick = () => this.loadData();
+            
+            const modalButtons = document.querySelector('.modal-buttons');
+            modalButtons.insertBefore(loadBtn, document.getElementById('clearBtn'));
+        } else {
+            loadBtn.style.display = 'inline-flex';
+        }
+        
         this.modal.style.display = 'block';
         this.encodedDataTextarea.focus();
-        
-        // Add load functionality
-        const loadButton = document.createElement('button');
-        loadButton.className = 'btn btn-success';
-        loadButton.textContent = 'Load Data';
-        loadButton.onclick = () => this.loadData();
-        
-        const modalButtons = document.querySelector('.modal-buttons');
-        modalButtons.innerHTML = '';
-        modalButtons.appendChild(loadButton);
-        modalButtons.appendChild(document.getElementById('clearBtn'));
     }
 
     loadData() {
