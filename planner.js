@@ -149,7 +149,16 @@ document.addEventListener('DOMContentLoaded', () => {
             render: (step, selections) => {
                 return `
                     <div class="summary-container">
-                        <h3>Selected Events</h3>
+                        <div class="summary-header">
+                            <h3>Selected Events</h3>
+                            <button class="download-csv-btn" onclick="downloadWeddingPlanCSV()">
+                                <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                                    <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+                                </svg>
+                                Download as CSV
+                            </button>
+                        </div>
                         <ul class="summary-list">
                             ${selections.events.map(event => `<li>${event}</li>`).join('')}
                         </ul>
@@ -404,6 +413,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
         .summary-container { font-size: 1.1rem; line-height: 1.8; }
         .summary-container h3 { font-size: 1.5rem; color: #1e293b; margin-top: 1.5rem; margin-bottom: 1rem; }
+        .summary-header { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            margin-bottom: 1rem;
+        }
+        .summary-header h3 { margin: 0; }
+        .download-csv-btn { 
+            display: flex; 
+            align-items: center; 
+            gap: 0.5rem; 
+            padding: 0.75rem 1.5rem; 
+            background-color: #8B5CF6; 
+            color: white; 
+            border: none; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            font-weight: 500;
+            transition: all 0.2s ease;
+            font-size: 0.9rem;
+        }
+        .download-csv-btn:hover { 
+            background-color: #7C3AED; 
+            transform: translateY(-1px);
+        }
+        .download-csv-btn:active { 
+            transform: translateY(0); 
+        }
         .summary-list { list-style-type: disc; padding-left: 20px; margin-bottom: 1.5rem; }
         .summary-event-group { margin-bottom: 1.5rem; }
         .summary-event-group h4 { font-size: 1.3rem; color: #334155; }
@@ -418,4 +455,58 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     `;
     document.head.appendChild(style);
+
+    // Make the download function available globally
+    window.downloadWeddingPlanCSV = function() {
+        const csvContent = generateWeddingPlanCSV(userSelections);
+        
+        // Create blob with application/csv MIME type to avoid text file detection
+        const blob = new Blob([csvContent], { 
+            type: 'application/csv'
+        });
+        
+        const link = document.createElement('a');
+        const url = URL.createObjectURL(blob);
+        link.setAttribute('href', url);
+        link.setAttribute('download', 'wedding-plan.csv');
+        link.style.visibility = 'hidden';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+    };
+    
+    function generateWeddingPlanCSV(selections) {
+        const lines = [];
+        
+        // Start with the main data table immediately (more recognizable as CSV)
+        lines.push('Event,Category,Vendor Name,Specialty,Phone,Instagram');
+        
+        selections.events.forEach(event => {
+            const eventVendors = selections.vendors[event] || {};
+            Object.entries(eventVendors).forEach(([category, vendorList]) => {
+                vendorList.forEach(vendorName => {
+                    const vendor = VENDORS.find(v => v.name === vendorName);
+                    if (vendor) {
+                        // Escape any quotes in the data and ensure proper CSV formatting
+                        const escapedEvent = `"${event.replace(/"/g, '""')}"`;
+                        const escapedCategory = `"${category.replace(/"/g, '""')}"`;
+                        const escapedName = `"${vendor.name.replace(/"/g, '""')}"`;
+                        const escapedSpecialty = `"${vendor.specialty.replace(/"/g, '""')}"`;
+                        const escapedPhone = `"${vendor.phone.replace(/"/g, '""')}"`;
+                        const escapedInstagram = `"${vendor.instagram.replace(/"/g, '""')}"`;
+                        
+                        lines.push(`${escapedEvent},${escapedCategory},${escapedName},${escapedSpecialty},${escapedPhone},${escapedInstagram}`);
+                    }
+                });
+            });
+        });
+        
+        // If no vendors selected, add a placeholder row to ensure CSV structure
+        if (lines.length === 1) {
+            lines.push('"No vendors selected","","","","",""');
+        }
+        
+        return lines.join('\r\n'); // Use Windows line endings for better compatibility
+    }
 }); 
