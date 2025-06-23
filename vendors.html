@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Vendors - DFW Desi Weddings</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .vendors-page {
+            padding: 120px 20px 60px;
+            min-height: 100vh;
+            background: #f8fafc;
+        }
+
+        .vendors-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .vendors-header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #8B5CF6;
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #7C3AED;
+        }
+
+        .vendor-filters {
+            margin-bottom: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .filter-buttons-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .arrow-btn {
+            background: transparent;
+            border: none;
+            font-size: 1.5rem;
+            color: #334155;
+            cursor: pointer;
+            padding: 0 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .arrow-btn:hover {
+            color: #8B5CF6;
+        }
+
+        .filter-btn {
+            padding: 0.75rem 1.5rem;
+            border: 1px solid #e2e8f0;
+            background-color: white;
+            color: #334155;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover {
+            background-color: #f1f5f9;
+            border-color: #cbd5e1;
+        }
+
+        .filter-btn.active {
+            background-color: #8B5CF6;
+            color: white;
+            border-color: #8B5CF6;
+        }
+
+        .vendor-table-container {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            overflow: auto;
+        }
+
+        .vendor-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 800px;
+        }
+
+        .vendor-table th,
+        .vendor-table td {
+            padding: 1rem 1.5rem;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .vendor-table th {
+            background: #f8fafc;
+            font-weight: 600;
+            color: #495057;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+
+        .vendor-table tbody tr:hover {
+            background-color: #f1f5f9;
+        }
+
+        .vendor-table td a {
+            color: #8B5CF6;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .vendor-table td a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>💒 DFW Desi Weddings</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="index.html#events" class="nav-link">Events</a></li>
+                <li><a href="vendors.html" class="nav-link">Vendors</a></li>
+                <li><a href="expense-tracker.html" class="nav-link">Expense Tracker</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="vendors-page">
+        <div class="container">
+            <a href="index.html" class="back-link">← Back to Home</a>
+            <div class="vendors-header">
+                <h1>All Recommended Vendors</h1>
+                <p class="section-subtitle">A comprehensive list of trusted vendors for your Desi Muslim wedding in DFW.</p>
+            </div>
+
+            <div class="vendor-filters">
+                <button id="prev-btn" class="arrow-btn">←</button>
+                <div class="filter-buttons-container">
+                    <button class="filter-btn active" data-category="all">All</button>
+                    <button class="filter-btn" data-category="food">Food</button>
+                    <button class="filter-btn" data-category="photographers">Photographers</button>
+                    <button class="filter-btn" data-category="videographers">Videographers</button>
+                    <button class="filter-btn" data-category="content-creators">Content Creators</button>
+                    <button class="filter-btn" data-category="supplying-companies">Supplying Companies</button>
+                    <button class="filter-btn" data-category="djs">DJs</button>
+                </div>
+                <button id="next-btn" class="arrow-btn">→</button>
+            </div>
+
+            <div class="vendor-table-container">
+                <table class="vendor-table">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Vendor Name</th>
+                            <th>Specialty</th>
+                            <th>Location</th>
+                            <th>Contact</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr data-category="food">
+                            <td>Food</td>
+                            <td>DFW Desi Catering</td>
+                            <td>Authentic Hyderabadi Biryani, Haleem</td>
+                            <td>Irving, TX</td>
+                            <td><a href="tel:+19725550130">(972) 555-0130</a></td>
+                        </tr>
+                        <tr data-category="photographers">
+                            <td>Photographers</td>
+                            <td>Aamir's Photography</td>
+                            <td>Candid shots, traditional portraits</td>
+                            <td>Dallas, TX</td>
+                            <td><a href="tel:+19725550131">(972) 555-0131</a></td>
+                        </tr>
+                        <tr data-category="videographers">
+                            <td>Videographers</td>
+                            <td>Alina Films</td>
+                            <td>Cinematic wedding films, drone shots</td>
+                            <td>Frisco, TX</td>
+                            <td><a href="tel:+19725550132">(972) 555-0132</a></td>
+                        </tr>
+                        <tr data-category="content-creators">
+                            <td>Content Creators</td>
+                            <td>Reels by Rabia</td>
+                            <td>Instagram Reels, TikTok wedding content</td>
+                            <td>Plano, TX</td>
+                            <td><a href="tel:+19725550133">(972) 555-0133</a></td>
+                        </tr>
+                        <tr data-category="supplying-companies">
+                            <td>Supplying Companies</td>
+                            <td>Desi Wedding Rentals</td>
+                            <td>Mandaps, jhoolas, stage decor</td>
+                            <td>Richardson, TX</td>
+                            <td><a href="tel:+19725550134">(972) 555-0134</a></td>
+                        </tr>
+                        <tr data-category="djs">
+                            <td>DJs</td>
+                            <td>DJ Khan</td>
+                            <td>Bollywood, Bhangra, Top 40 Fusion</td>
+                            <td>Carrollton, TX</td>
+                            <td><a href="tel:+19725550135">(972) 555-0135</a></td>
+                        </tr>
+                        <tr data-category="djs">
+                            <td>DJs</td>
+                            <td>DFW Desi Beats</td>
+                            <td>Traditional Dholki music, modern fusion</td>
+                            <td>Irving, TX</td>
+                            <td><a href="tel:+19725550123">(972) 555-0123</a></td>
+                        </tr>
+                        <tr data-category="djs">
+                            <td>DJs</td>
+                            <td>Dallas Dhol Group</td>
+                            <td>Authentic Punjabi beats, Bhangra</td>
+                            <td>Plano, TX</td>
+                            <td><a href="tel:+19725550124">(972) 555-0124</a></td>
+                        </tr>
+                         <tr data-category="supplying-companies">
+                            <td>Supplying Companies</td>
+                            <td>Natural Glow Haldi</td>
+                            <td>Organic turmeric paste for Haldi ceremony</td>
+                            <td>Frisco, TX</td>
+                            <td><a href="tel:+19725550125">(972) 555-0125</a></td>
+                        </tr>
+                        <tr data-category="supplying-companies">
+                            <td>Supplying Companies</td>
+                            <td>Desi Beauty Rituals</td>
+                            <td>Pre-wedding skincare, bridal preparation</td>
+                            <td>Arlington, TX</td>
+                            <td><a href="tel:+19725550126">(972) 555-0126</a></td>
+                        </tr>
+                         <tr data-category="supplying-companies">
+                            <td>Supplying Companies</td>
+                            <td>Desi Decor Dreams</td>
+                            <td>Marigold garlands, ethnic backdrops</td>
+                            <td>Dallas, TX</td>
+                            <td><a href="tel:+19725550127">(972) 555-0127</a></td>
+                        </tr>
+                        <!-- Add more vendors here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+    
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const vendorRows = document.querySelectorAll('.vendor-table tbody tr');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            let currentIndex = 0;
+
+            function updateActiveButton(index) {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to the current button
+                const newActiveButton = filterButtons[index];
+                newActiveButton.classList.add('active');
+
+                // Filter rows
+                const category = newActiveButton.dataset.category;
+                vendorRows.forEach(row => {
+                    if (category === 'all' || row.dataset.category === category) {
+                        row.style.display = ''; // Show row
+                    } else {
+                        row.style.display = 'none'; // Hide row
+                    }
+                });
+            }
+
+            filterButtons.forEach((button, index) => {
+                button.addEventListener('click', () => {
+                    currentIndex = index;
+                    updateActiveButton(currentIndex);
+                });
+            });
+
+            prevBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex > 0) ? currentIndex - 1 : filterButtons.length - 1;
+                updateActiveButton(currentIndex);
+            });
+
+            nextBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex < filterButtons.length - 1) ? currentIndex + 1 : 0;
+                updateActiveButton(currentIndex);
+            });
+        });
+    </script>
+</body>
+</html> 

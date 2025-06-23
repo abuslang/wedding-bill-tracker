@@ -185,6 +185,32 @@ body {
     transform: translateY(-2px);
 }
 
+/* Vendors Section on Landing Page */
+.vendors-section {
+    padding: 5rem 0;
+    text-align: center;
+    background: white;
+}
+
+.vendors-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #1e293b;
+}
+
+.vendors-action {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.btn-large {
+    padding: 1rem 2.5rem;
+    font-size: 1.2rem;
+    border-radius: 12px;
+}
+
 /* Events Section */
 .events-section {
     padding: 5rem 0;
@@ -206,11 +232,15 @@ body {
     margin-bottom: 3rem;
 }
 
+.vendors-action {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
 .events-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
-    margin-top: 3rem;
 }
 
 .event-card {

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Planner - DFW Desi Weddings</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .planner-page {
+            padding: 120px 20px 60px;
+            min-height: 100vh;
+            background: #f8fafc;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+        }
+
+        .planner-container {
+            width: 100%;
+            max-width: 800px;
+            background: white;
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+
+        .planner-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .planner-header h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #1e293b;
+        }
+        
+        #step-content {
+            margin-bottom: 2rem;
+        }
+        
+        .step-navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 2rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        #prev-step {
+            display: none; /* Hidden on the first step */
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>💒 DFW Desi Weddings</h2>
+            </div>
+            <ul class="nav-menu">
+                 <li><a href="index.html" class="nav-link">Home</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="planner-page">
+        <div class="planner-container">
+            <div class="planner-header">
+                <h1 id="step-title">Wedding Planner</h1>
+            </div>
+
+            <div id="step-content">
+                <!-- Dynamic step content will be rendered here -->
+            </div>
+
+            <div class="step-navigation">
+                <button id="prev-step" class="btn btn-secondary">Back</button>
+                <button id="next-step" class="btn btn-primary">Next</button>
+            </div>
+        </div>
+    </main>
+    
+    <script src="planner.js"></script>
+</body>
+</html> 
