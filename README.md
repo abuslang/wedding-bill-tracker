@@ -1,6 +1,5 @@
-# 💒 Wedding Expense Tracker
+# Wedding Expense Tracker
 
-A beautiful, responsive web-based tool to track wedding expenses with spreadsheet-like functionality. Perfect for couples planning their special day!
 
 ## ✨ Features
 
@@ -114,7 +113,3 @@ Feel free to fork this project and make improvements! Some ideas:
 This project is open source and available under the MIT License.
 
 ---
-
-**Happy Wedding Planning! 💕**
-
-*Built with ❤️ for couples everywhere*
