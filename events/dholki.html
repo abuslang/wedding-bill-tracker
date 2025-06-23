@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dholki/Haldi - DFW Desi Weddings</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .event-page {
+            padding: 120px 20px 60px;
+            min-height: 100vh;
+            background: #f8fafc;
+        }
+
+        .event-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .event-header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+        }
+
+        .event-header .event-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .event-description {
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            text-align: center;
+            color: #64748b;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .vendor-section {
+            margin-bottom: 4rem;
+        }
+
+        .vendor-section h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .vendors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .vendor-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .vendor-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .vendor-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .vendor-icon {
+            font-size: 2rem;
+            width: 60px;
+            height: 60px;
+            background: #f1f5f9;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .vendor-info h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+        }
+
+        .vendor-location {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .vendor-description {
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .vendor-contact {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .contact-item a {
+            color: #8B5CF6;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-item a:hover {
+            color: #7C3AED;
+        }
+
+        .vendor-examples {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .vendor-examples h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 1rem;
+        }
+
+        .examples-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .examples-list li {
+            color: #64748b;
+            margin-bottom: 0.5rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .examples-list li::before {
+            content: '•';
+            color: #8B5CF6;
+            position: absolute;
+            left: 0;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #8B5CF6;
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #7C3AED;
+        }
+
+        @media (max-width: 768px) {
+            .event-page {
+                padding: 100px 15px 40px;
+            }
+
+            .event-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .vendors-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>💒 DFW Desi Weddings</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="../index.html#events" class="nav-link">Events</a></li>
+                <li><a href="../index.html#vendors" class="nav-link">Vendors</a></li>
+                <li><a href="../expense-tracker.html" class="nav-link">Expense Tracker</a></li>
+                <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="event-page">
+        <div class="container">
+            <a href="../index.html" class="back-link">← Back to Home</a>
+            
+            <div class="event-header">
+                <div class="event-icon">🥁</div>
+                <h1>Dholki / Haldi</h1>
+                <div class="event-description">
+                    <p>The Dholki and Haldi ceremonies are beautiful pre-wedding celebrations that bring families together. The Dholki features traditional songs and music, while the Haldi ceremony involves applying turmeric paste to the bride and groom for a natural glow. These events are filled with joy, laughter, and cultural traditions.</p>
+                </div>
+            </div>
+
+            <div class="vendor-section">
+                <h2>🎵 Music & Entertainment</h2>
+                <div class="vendors-grid">
+                    <div class="vendor-card">
+                        <div class="vendor-header">
+                            <div class="vendor-icon">🎤</div>
+                            <div class="vendor-info">
+                                <h3>DFW Desi Beats</h3>
+                                <div class="vendor-location">📍 Irving, TX</div>
+                            </div>
+                        </div>
+                        <div class="vendor-description">
+                            Specializing in traditional Dholki music with modern fusion. Professional singers and musicians for authentic Desi wedding celebrations.
+                        </div>
+                        <div class="vendor-contact">
+                            <div class="contact-item">
+                                📞 <a href="tel:+19725550123">(972) 555-0123</a>
+                            </div>
+                            <div class="contact-item">
+                                📧 <a href="mailto:info@dfwdesibeats.com">info@dfwdesibeats.com</a>
+                            </div>
+                            <div class="contact-item">
+                                🌐 <a href="https://dfwdesibeats.com" target="_blank">dfwdesibeats.com</a>
+                            </div>
+                        </div>
+                        <div class="vendor-examples">
+                            <h4>Services Include:</h4>
+                            <ul class="examples-list">
+                                <li>Traditional Dholki songs</li>
+                                <li>Live music performance</li>
+                                <li>Sound system setup</li>
+                                <li>Custom song requests</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="vendor-card">
+                        <div class="vendor-header">
+                            <div class="vendor-icon">🥁</div>
+                            <div class="vendor-info">
+                                <h3>Dallas Dhol Group</h3>
+                                <div class="vendor-location">📍 Plano, TX</div>
+                            </div>
+                        </div>
+                        <div class="vendor-description">
+                            Professional Dhol players with years of experience in Desi weddings. Authentic Punjabi beats and modern fusion music.
+                        </div>
+                        <div class="vendor-contact">
+                            <div class="contact-item">
+                                📞 <a href="tel:+19725550124">(972) 555-0124</a>
+                            </div>
+                            <div class="contact-item">
+                                📧 <a href="mailto:contact@dallasdhol.com">contact@dallasdhol.com</a>
+                            </div>
+                            <div class="contact-item">
+                                📱 <a href="https://instagram.com/dallasdhol" target="_blank">@dallasdhol</a>
+                            </div>
+                        </div>
+                        <div class="vendor-examples">
+                            <h4>Services Include:</h4>
+                            <ul class="examples-list">
+                                <li>Traditional Dhol performance</li>
+                                <li>Bhangra music</li>
+                                <li>Interactive dance sessions</li>
+                                <li>Multiple Dhol players</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="vendor-section">
+                <h2>🌿 Haldi Ceremony</h2>
+                <div class="vendors-grid">
+                    <div class="vendor-card">
+                        <div class="vendor-header">
+                            <div class="vendor-icon">🌿</div>
+                            <div class="vendor-info">
+                                <h3>Natural Glow Haldi</h3>
+                                <div class="vendor-location">📍 Frisco, TX</div>
+                            </div>
+                        </div>
+                        <div class="vendor-description">
+                            Organic turmeric paste preparation and application services. Traditional Haldi ceremony with authentic ingredients and rituals.
+                        </div>
+                        <div class="vendor-contact">
+                            <div class="contact-item">
+                                📞 <a href="tel:+19725550125">(972) 555-0125</a>
+                            </div>
+                            <div class="contact-item">
+                                📧 <a href="mailto:info@naturalglowhaldi.com">info@naturalglowhaldi.com</a>
+                            </div>
+                            <div class="contact-item">
+                                🌐 <a href="https://naturalglowhaldi.com" target="_blank">naturalglowhaldi.com</a>
+                            </div>
+                        </div>
+                        <div class="vendor-examples">
+                            <h4>Services Include:</h4>
+                            <ul class="examples-list">
+                                <li>Organic turmeric paste</li>
+                                <li>Traditional application</li>
+                                <li>Ceremony coordination</li>
+                                <li>Custom ingredients</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="vendor-card">
+                        <div class="vendor-header">
+                            <div class="vendor-icon">💆‍♀️</div>
+                            <div class="vendor-info">
+                                <h3>Desi Beauty Rituals</h3>
+                                <div class="vendor-location">📍 Arlington, TX</div>
+                            </div>
+                        </div>
+                        <div class="vendor-description">
+                            Complete pre-wedding beauty services including Haldi ceremony, traditional skincare, and bridal preparation.
+                        </div>
+                        <div class="vendor-contact">
+                            <div class="contact-item">
+                                📞 <a href="tel:+19725550126">(972) 555-0126</a>
+                            </div>
+                            <div class="contact-item">
+                                📧 <a href="mailto:hello@desibeautyrituals.com">hello@desibeautyrituals.com</a>
+                            </div>
+                            <div class="contact-item">
+                                📱 <a href="https://instagram.com/desibeautyrituals" target="_blank">@desibeautyrituals</a>
+                            </div>
+                        </div>
+                        <div class="vendor-examples">
+                            <h4>Services Include:</h4>
+                            <ul class="examples-list">
+                                <li>Haldi ceremony setup</li>
+                                <li>Traditional skincare</li>
+                                <li>Bridal preparation</li>
+                                <li>Family coordination</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="vendor-section">
+                <h2>🎨 Decoration & Setup</h2>
+                <div class="vendors-grid">
+                    <div class="vendor-card">
+                        <div class="vendor-header">
+                            <div class="vendor-icon">🌸</div>
+                            <div class="vendor-info">
+                                <h3>Desi Decor Dreams</h3>
+                                <div class="vendor-location">📍 Dallas, TX</div>
+                            </div>
+                        </div>
+                        <div class="vendor-description">
+                            Beautiful decorations for Dholki and Haldi ceremonies. Traditional themes with modern touches, including marigold garlands and ethnic decor.
+                        </div>
+                        <div class="vendor-contact">
+                            <div class="contact-item">
+                                📞 <a href="tel:+19725550127">(972) 555-0127</a>
+                            </div>
+                            <div class="contact-item">
+                                📧 <a href="mailto:info@desidecordreams.com">info@desidecordreams.com</a>
+                            </div>
+                            <div class="contact-item">
+                                🌐 <a href="https://desidecordreams.com" target="_blank">desidecordreams.com</a>
+                            </div>
+                        </div>
+                        <div class="vendor-examples">
+                            <h4>Services Include:</h4>
+                            <ul class="examples-list">
+                                <li>Traditional decorations</li>
+                                <li>Marigold garlands</li>
+                                <li>Ethnic backdrops</li>
+                                <li>Complete setup & cleanup</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../script.js"></script>
+</body>
+</html> 

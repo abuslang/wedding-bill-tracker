@@ -3,76 +3,215 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wedding Expense Tracker</title>
+    <title>DFW Desi Muslim Wedding Planner</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>💒 Wedding Expense Tracker</h1>
-            <p>Track your wedding expenses with ease</p>
-        </header>
-
-        <div class="controls">
-            <button id="addRowBtn" class="btn btn-primary">
-                ➕ Add Expense
-            </button>
-            <div class="save-load-section">
-                <button id="saveBtn" class="btn btn-success">
-                    💾 Save
-                </button>
-                <button id="loadBtn" class="btn btn-info">
-                    📂 Load
-                </button>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>💒 DFW Desi Weddings</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#events" class="nav-link">Events</a></li>
+                <li><a href="#vendors" class="nav-link">Vendors</a></li>
+                <li><a href="#expenses" class="nav-link">Expense Tracker</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
         </div>
+    </nav>
 
-        <div class="table-container">
-            <table id="expenseTable">
-                <thead>
-                    <tr>
-                        <th>Expense Name</th>
-                        <th>Total Amount ($)</th>
-                        <th>Paid So Far ($)</th>
-                        <th>Remaining ($)</th>
-                        <th>Who Paid</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody id="expenseTableBody">
-                    <!-- Rows will be added here dynamically -->
-                </tbody>
-            </table>
-        </div>
-
-        <div class="summary">
-            <div class="summary-card">
-                <h3>Total Expenses</h3>
-                <p id="totalExpenses">$0.00</p>
-            </div>
-            <div class="summary-card">
-                <h3>Total Paid</h3>
-                <p id="totalPaid">$0.00</p>
-            </div>
-            <div class="summary-card">
-                <h3>Remaining</h3>
-                <p id="totalRemaining">$0.00</p>
-            </div>
-        </div>
-
-        <!-- Modal for save/load -->
-        <div id="modal" class="modal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <h2 id="modalTitle">Save Data</h2>
-                <textarea id="encodedData" placeholder="Paste your encoded data here..."></textarea>
-                <div class="modal-buttons">
-                    <button id="copyBtn" class="btn btn-success">Copy to Clipboard</button>
-                    <button id="clearBtn" class="btn btn-warning">Clear</button>
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Your Perfect Desi Muslim Wedding in DFW</h1>
+                <p>From Dholki to Valima, we've got everything you need to plan your dream wedding in the Dallas-Fort Worth area</p>
+                <div class="hero-buttons">
+                    <a href="#events" class="btn btn-primary">Explore Events</a>
+                    <a href="#expenses" class="btn btn-secondary">Track Expenses</a>
                 </div>
             </div>
+            <div class="hero-image">
+                <div class="hero-pattern"></div>
+            </div>
+        </section>
+
+        <!-- Events Section -->
+        <section id="events" class="events-section">
+            <div class="container">
+                <h2>Traditional Desi Muslim Wedding Events</h2>
+                <p class="section-subtitle">Each event is a beautiful celebration of love and culture</p>
+                
+                <div class="events-grid">
+                    <div class="event-card" data-event="dholki">
+                        <div class="event-icon">🥁</div>
+                        <h3>Dholki / Haldi</h3>
+                        <p>The pre-wedding celebration with traditional songs, henna, and turmeric ceremony</p>
+                        <a href="events/dholki.html" class="btn btn-outline">View Vendors</a>
+                    </div>
+
+                    <div class="event-card" data-event="mehendi">
+                        <div class="event-icon">🌿</div>
+                        <h3>Mehendi</h3>
+                        <p>Intricate henna designs and joyful celebrations with family and friends</p>
+                        <a href="events/mehendi.html" class="btn btn-outline">View Vendors</a>
+                    </div>
+
+                    <div class="event-card" data-event="nikah">
+                        <div class="event-icon">📜</div>
+                        <h3>Nikah</h3>
+                        <p>The sacred Islamic marriage ceremony and contract signing</p>
+                        <a href="events/nikah.html" class="btn btn-outline">View Vendors</a>
+                    </div>
+
+                    <div class="event-card" data-event="shaadi">
+                        <div class="event-icon">💕</div>
+                        <h3>Shaadi</h3>
+                        <p>The grand wedding reception with traditional ceremonies and celebrations</p>
+                        <a href="events/shaadi.html" class="btn btn-outline">View Vendors</a>
+                    </div>
+
+                    <div class="event-card" data-event="valima">
+                        <div class="event-icon">🍽️</div>
+                        <h3>Valima</h3>
+                        <p>The wedding feast hosted by the groom's family</p>
+                        <a href="events/valima.html" class="btn btn-outline">View Vendors</a>
+                    </div>
+
+                    <div class="event-card" data-event="shalima">
+                        <div class="event-icon">🎊</div>
+                        <h3>Shalima</h3>
+                        <p>Combined Shaadi and Valima celebration for modern convenience</p>
+                        <a href="events/shalima.html" class="btn btn-outline">View Vendors</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features-section">
+            <div class="container">
+                <h2>Why Choose DFW Desi Weddings?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">📍</div>
+                        <h3>Local Expertise</h3>
+                        <p>Deep knowledge of DFW venues, vendors, and local Muslim community</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🕌</div>
+                        <h3>Cultural Understanding</h3>
+                        <p>Respect for Islamic traditions and Desi cultural practices</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💰</div>
+                        <h3>Budget Friendly</h3>
+                        <p>Tools and resources to plan your dream wedding within budget</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🤝</div>
+                        <h3>Vetted Vendors</h3>
+                        <p>Carefully selected vendors who understand Desi Muslim weddings</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Access Section -->
+        <section class="quick-access">
+            <div class="container">
+                <h2>Quick Access Tools</h2>
+                <div class="tools-grid">
+                    <a href="expense-tracker.html" class="tool-card">
+                        <div class="tool-icon">💳</div>
+                        <h3>Expense Tracker</h3>
+                        <p>Track your wedding budget with our spreadsheet-style tool</p>
+                    </a>
+                    <a href="vendors.html" class="tool-card">
+                        <div class="tool-icon">🏢</div>
+                        <h3>Vendor Directory</h3>
+                        <p>Browse all our recommended vendors by category</p>
+                    </a>
+                    <a href="timeline.html" class="tool-card">
+                        <div class="tool-icon">📅</div>
+                        <h3>Wedding Timeline</h3>
+                        <p>Plan your wedding timeline with our interactive planner</p>
+                    </a>
+                    <a href="checklist.html" class="tool-card">
+                        <div class="tool-icon">✅</div>
+                        <h3>Wedding Checklist</h3>
+                        <p>Never miss a detail with our comprehensive checklist</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <h2>Get in Touch</h2>
+                <p>Need help planning your Desi Muslim wedding in DFW?</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <h3>Email</h3>
+                        <p>info@dfwdesiweddings.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <h3>Phone</h3>
+                        <p>(972) 555-0123</p>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <h3>Location</h3>
+                        <p>Dallas-Fort Worth Metroplex</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>DFW Desi Weddings</h3>
+                    <p>Your trusted partner for Desi Muslim weddings in the Dallas-Fort Worth area.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#events">Wedding Events</a></li>
+                        <li><a href="vendors.html">Vendors</a></li>
+                        <li><a href="expense-tracker.html">Expense Tracker</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Events</h4>
+                    <ul>
+                        <li><a href="events/dholki.html">Dholki/Haldi</a></li>
+                        <li><a href="events/mehendi.html">Mehendi</a></li>
+                        <li><a href="events/nikah.html">Nikah</a></li>
+                        <li><a href="events/shaadi.html">Shaadi</a></li>
+                        <li><a href="events/valima.html">Valima</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 DFW Desi Weddings. All rights reserved.</p>
+            </div>
         </div>
-    </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>
